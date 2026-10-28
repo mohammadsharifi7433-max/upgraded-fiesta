@@ -1,12 +1,7 @@
 services:
   - type: web
-    name: reelforge-ai-web
-    env: python
+    name: reelforge-ai
+    runtime: docker
     plan: free
-    buildCommand: apt-get update && apt-get install -y unzip ffmpeg && rm -rf app && mkdir app && unzip -o reelforge-source.zip -d app && pip install -r app/requirements.txt
-    startCommand: gunicorn --chdir app ReelForge_AI_v4.app:app --bind 0.0.0.0:$PORT
-    envVars:
-      - key: PYTHON_VERSION
-        value: "3.11.9"
-      - key: SECRET_KEY
-        generateValue: true
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/health
