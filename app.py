@@ -1,11 +1,13 @@
 import os
 from flask import Flask, render_template, jsonify
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="app/templates")
+
 
 @app.get("/")
 def home():
     return render_template("index.html")
+
 
 @app.get("/api/health")
 def health():
@@ -14,6 +16,7 @@ def health():
         "service": "ReelForge AI"
     })
 
+
 @app.get("/api/info")
 def info():
     return jsonify({
@@ -21,6 +24,7 @@ def info():
         "version": "1.0.0",
         "message": "Your content. Powered by AI."
     })
+
 
 if __name__ == "__main__":
     app.run(
