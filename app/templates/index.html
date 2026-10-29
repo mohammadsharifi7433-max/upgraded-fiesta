@@ -1,165 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>ReelForge AI</title>
-  <style>
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Arial,sans-serif;
-      background:#09090b;
-      color:#fff;
-    }
-    .hero{
-      max-width:1100px;
-      margin:auto;
-      padding:80px 24px;
-      text-align:center;
-    }
-    .badge{
-      display:inline-block;
-      padding:8px 14px;
-      border:1px solid #333;
-      border-radius:30px;
-      color:#aaa;
-      margin-bottom:25px;
-    }
-    h1{
-      font-size:clamp(45px,8vw,82px);
-      margin:0;
-      line-height:1;
-    }
-    .gradient{
-      background:linear-gradient(90deg,#7c3aed,#ec4899,#f59e0b);
-      -webkit-background-clip:text;
-      color:transparent;
-    }
-    p{
-      color:#aaa;
-      font-size:20px;
-      line-height:1.6;
-    }
-    .card{
-      max-width:760px;
-      margin:45px auto;
-      padding:35px;
-      background:#151518;
-      border:1px solid #29292e;
-      border-radius:24px;
-    }
-    input{
-      width:100%;
-      padding:18px;
-      background:#0d0d0f;
-      color:white;
-      border:1px solid #333;
-      border-radius:12px;
-      margin:15px 0;
-    }
-    button{
-      width:100%;
-      padding:18px;
-      border:0;
-      border-radius:12px;
-      background:#7c3aed;
-      color:white;
-      font-size:17px;
-      font-weight:bold;
-    }
-    .features{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-      gap:18px;
-      margin-top:40px;
-    }
-    .feature{
-      padding:25px;
-      background:#111114;
-      border:1px solid #29292e;
-      border-radius:18px;
-      text-align:left;
-    }
-    .feature h3{margin-top:0}
-    footer{
-      color:#666;
-      padding:40px;
-      text-align:center;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ReelForge AI</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#09090b;
+  color:#fff;
+}
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  padding:60px 20px;
+  text-align:center;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border:1px solid #333;
+  border-radius:30px;
+  color:#aaa;
+  margin-bottom:25px;
+}
+
+h1{
+  font-size:clamp(45px,8vw,82px);
+  margin:0;
+  line-height:1;
+}
+
+.gradient{
+  background:linear-gradient(90deg,#7c3aed,#ec4899,#f59e0b);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+}
+
+p{
+  color:#aaa;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.card{
+  max-width:760px;
+  margin:45px auto;
+  padding:35px;
+  background:#151518;
+  border:1px solid #29292e;
+  border-radius:24px;
+}
+
+input[type="file"]{
+  width:100%;
+  padding:18px;
+  background:#0d0d0f;
+  color:white;
+  border:1px solid #333;
+  border-radius:12px;
+  margin:15px 0;
+}
+
+button{
+  width:100%;
+  padding:18px;
+  border:0;
+  border-radius:12px;
+  background:#7c3aed;
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+}
+
+button:disabled{
+  opacity:.6;
+}
+
+#status{
+  margin-top:20px;
+}
+
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-top:40px;
+}
+
+.feature{
+  padding:25px;
+  background:#111114;
+  border:1px solid #29292e;
+  border-radius:18px;
+  text-align:left;
+}
+
+.feature h3{
+  margin-top:0;
+}
+
+footer{
+  color:#666;
+  padding:40px;
+  text-align:center;
+}
+</style>
 </head>
 
 <body>
-  <section class="hero">
-    <div class="badge">AI Content Studio</div>
 
-    <h1>
-      Your content.<br>
-      <span class="gradient">Powered by AI.</span>
-    </h1>
+<section class="hero">
 
-    <p>
-      Turn long videos into engaging short-form content,
-      generate captions and create social-ready content faster.
-    </p>
+<div class="badge">AI Content Studio</div>
 
-    <div class="card">
-      <h2>AI Reel Maker</h2>
-      <p>Upload your video and prepare it for short-form content.</p>
+<h1>
+Your content.<br>
+<span class="gradient">Powered by AI.</span>
+</h1>
 
-      <input type="file" accept="video/*">
+<p>
+Turn your videos into engaging vertical short-form content.
+</p>
 
-      <button onclick="startDemo()">
-        Create My Reel
-      </button>
+<div class="card">
 
-      <p id="status"></p>
-    </div>
+<h2>🎬 AI Reel Maker</h2>
 
-    <div class="features">
-      <div class="feature">
-        <h3>🎬 AI Reel Maker</h3>
-        <p>Prepare vertical short-form videos.</p>
-      </div>
+<p>
+Upload a video and ReelForge AI will convert it into a vertical 9:16 Reel.
+</p>
 
-      <div class="feature">
-        <h3>✂️ One Click Content</h3>
-        <p>Create multiple short clips from long videos.</p>
-      </div>
+<input
+  id="videoInput"
+  type="file"
+  accept="video/mp4,video/mov,video/webm,video/*"
+>
 
-      <div class="feature">
-        <h3>✍️ AI Captions</h3>
-        <p>Generate hooks, captions and hashtags.</p>
-      </div>
+<button id="createButton" onclick="createReel()">
+Create My Reel
+</button>
 
-      <div class="feature">
-        <h3>📸 AI Photo Studio</h3>
-        <p>Prepare images for social media and products.</p>
-      </div>
-    </div>
-  </section>
+<p id="status"></p>
 
-  <footer>
-    ReelForge AI — Your content. Powered by AI.
-  </footer>
+</div>
 
-  <script>
-    async function startDemo(){
-      const status=document.getElementById("status");
-      status.textContent="Checking ReelForge AI...";
+<div class="features">
+
+<div class="feature">
+<h3>🎬 AI Reel Maker</h3>
+<p>Convert videos into vertical 9:16 Reels.</p>
+</div>
+
+<div class="feature">
+<h3>✂️ One Click Content</h3>
+<p>Create short-form content faster.</p>
+</div>
+
+<div class="feature">
+<h3>✍️ AI Captions</h3>
+<p>Generate hooks, captions and hashtags.</p>
+</div>
+
+<div class="feature">
+<h3>📸 AI Photo Studio</h3>
+<p>Prepare images for social media and products.</p>
+</div>
+
+</div>
+
+</section>
+
+<footer>
+ReelForge AI — Your content. Powered by AI.
+</footer>
+
+<script>
+
+async function createReel(){
+
+  const input = document.getElementById("videoInput");
+  const button = document.getElementById("createButton");
+  const status = document.getElementById("status");
+
+  if(!input.files || input.files.length === 0){
+    status.textContent = "⚠️ Please select a video first.";
+    return;
+  }
+
+  const file = input.files[0];
+
+  button.disabled = true;
+  button.textContent = "Processing...";
+  status.textContent = "⏳ Uploading and creating your Reel...";
+
+  const formData = new FormData();
+  formData.append("video", file);
+
+  try{
+
+    const response = await fetch("/api/create-reel", {
+      method:"POST",
+      body:formData
+    });
+
+    if(!response.ok){
+
+      let message = "Video processing failed.";
 
       try{
-        const r=await fetch("/api/health");
-        const data=await r.json();
-        status.textContent=
-          data.status==="ok"
-          ? "✓ ReelForge AI is online."
-          : "Something went wrong.";
-      }catch(e){
-        status.textContent="Connection error.";
-      }
+        const errorData = await response.json();
+
+        if(errorData.error){
+          message = errorData.error;
+        }
+      }catch(e){}
+
+      throw new Error(message);
     }
-  </script>
+
+    status.textContent = "✅ Reel created! Preparing download...";
+
+    const blob = await response.blob();
+
+    const url = window.URL.createObjectURL(blob);
+
+    const a = document.createElement("a");
+
+    a.href = url;
+    a.download = "reelforge-reel.mp4";
+
+    document.body.appendChild(a);
+
+    a.click();
+
+    a.remove();
+
+    window.URL.revokeObjectURL(url);
+
+    status.textContent = "✅ Your Reel is ready and downloaded.";
+
+  }catch(error){
+
+    status.textContent = "❌ " + error.message;
+
+  }finally{
+
+    button.disabled = false;
+    button.textContent = "Create My Reel";
+
+  }
+
+}
+
+</script>
+
 </body>
 </html>
