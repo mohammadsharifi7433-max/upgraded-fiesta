@@ -14,4 +14,4 @@ COPY . .
 
 ENV PYTHONUNBUFFERED=1
 
-CMD gunicorn --bind 0.0.0.0:${PORT:-10000} app:app
+CMD CMD gunicorn --bind 0.0.0.0:${PORT:-10000} --timeout 300 --access-logfile - --error-logfile - --log-level info app:app
