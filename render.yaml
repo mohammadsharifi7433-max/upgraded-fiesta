@@ -4,5 +4,5 @@ services:
     runtime: docker
     plan: free
     dockerfilePath: ./Dockerfile
-        dockerCommand: gunicorn --bind 0.0.0.0:$PORT --timeout 300 --access-logfile - --error-logfile - --log-level info app:app
+    dockerCommand: gunicorn --bind 0.0.0.0:$PORT --timeout 300 --access-logfile - --error-logfile - --log-level info app:app
     healthCheckPath: /api/health
